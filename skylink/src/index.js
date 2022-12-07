@@ -4,7 +4,7 @@ import 'semantic-ui-css/semantic.min.css';
 import './app/layout/styles.css';
 import App from './app/layout/App';
 import reportWebVitals from './reportWebVitals';
-import * as serviceWorker from './serviceWorker';
+
 
 
 const rootEl = document.getElementById('root');
@@ -28,4 +28,4 @@ render();
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-serviceWorker.unregister();
+
