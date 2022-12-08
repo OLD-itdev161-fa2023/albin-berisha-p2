@@ -1,8 +1,16 @@
-import {Segment, Header , Form, Button } from 'semantic-ui-react';
-import { useState, cuid } from 'react';
-import React from 'react';
+import cuid from "cuid";
+import { useState } from "react";
+import { Button, Form, Header, Segment} from 'semantic-ui-react'
 
-export default function EventForm({setFormOpen, setEvents, createEvent, selectedEvent, updateEvent, selectEvent }) {
+
+export default function EventForm({
+    setFormOpen, 
+    setEvents, 
+    createEvent, 
+    selectedEvent, 
+    updateEvent, 
+    selectEvent }) {
+
     const initialValues = selectedEvent ?? {
         title: '',
         category:'',
@@ -14,14 +22,14 @@ export default function EventForm({setFormOpen, setEvents, createEvent, selected
     const [values, setValues] = useState(initialValues);
 
     function handleFormSubmit() {
-        selectEvent ? updateEvent({...selectedEvent, ...values}) :
-    
-        createEvent({
-            ...values, 
-            id: cuid(), 
-            hostedBy: 'Albin', 
-            attendees: [], 
-            hostPhotoURL: '/assets/user.png'});
+        selectEvent 
+            ? updateEvent({...selectedEvent, ...values}) 
+            : createEvent({
+                    ...values, 
+                    id: cuid(), 
+                    hostedBy: 'Albin', 
+                    attendees: [], 
+                    hostPhotoURL: '/assets/user.png'});
         setFormOpen(false);
     }
 
@@ -32,9 +40,10 @@ export default function EventForm({setFormOpen, setEvents, createEvent, selected
 
 return(
     <Segment clearing>
-        <Header content={selectedEvent ? 'Edit the event' : 'Create new event'}/>
+        <Header 
+            content={selectedEvent ? 'Edit the event' : 'Create new event'}
+        />
             <Form onSubmit={handleFormSubmit}>
-            
                 <Form.Field>
                         <input 
                         type="text" 
@@ -74,13 +83,14 @@ return(
                 <Form.Field>
                         <input type="text" 
                         placeholder='Venue' 
-                        name='vanue'
-                        value={values.vanue} 
+                        name='venue'
+                        value={values.venue} 
                         onChange={(e) => handleInputChange(e)}/>
                 </Form.Field>
                     
                 <Form.Field>
-                        <input type="text" 
+                        <input 
+                        type="date" 
                         placeholder='Date'
                         name='date'
                         value={values.date} 
@@ -96,5 +106,5 @@ return(
             </Form>
     </Segment>
 
-)
+);
 }

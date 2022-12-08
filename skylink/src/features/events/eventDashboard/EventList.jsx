@@ -7,10 +7,11 @@ export default function EventList({events, selectEvent, deleteEvent}){
             {
                 events.map(event => (
                    <EventListItem 
-                   event={event} 
-                   key={event.id} 
-                   selectEvent={selectEvent} 
-                   deleteEvent = {deleteEvent}/>  
+                        event={event} 
+                        key={event.id} 
+                        selectEvent={selectEvent} 
+                        deleteEvent = {deleteEvent}
+                    />  
                 ))
             }
         </>

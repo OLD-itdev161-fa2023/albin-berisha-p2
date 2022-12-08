@@ -47,5 +47,5 @@ export default function EventListItem({event, selectEvent, deleteEvent}){
                 />
             </Segment>
         </Segment.Group>
-    )
+    );
 }

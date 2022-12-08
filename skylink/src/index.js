@@ -1,26 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import 'semantic-ui-css/semantic.min.css';
 import './app/layout/styles.css';
 import App from './app/layout/App';
 import reportWebVitals from './reportWebVitals';
 
 
-
-const rootEl = document.getElementById('root');
-
-function render() {
-  ReactDOM.render(<App />, rootEl)
-}
+createRoot(document.getElementById('root')).render(
+    <App />
+);
 
 if (module.hot) {
   module.hot.accept('./app/layout/App', function(){
+    // eslint-disable-next-line no-undef
     setTimeout(render);
   })
 }
-
-render();
-
 
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,10 +1,10 @@
-import React, {useState, handleSelectEvent} from "react";
+import React, {useState} from "react";
 import { Grid } from "semantic-ui-react";
 import EventList from "./EventList";
 import EventForm from "../eventForm/EventForm";
 import { sampleData } from "../../../app/api/sampleData";
 
-export default function EventDashboard({formOpen, setFormOpen, selectEvent, selectedEvent}){
+export default function EventDashboard({formOpen, setFormOpen, createEvent,  selectEvent, selectedEvent}){
 
     const [events, setEvents] = useState(sampleData);
 
@@ -24,7 +24,11 @@ export default function EventDashboard({formOpen, setFormOpen, selectEvent, sele
     return(
         <Grid>
             <Grid.Column width={10}>
-                <EventList events={events} selectEvent={selectEvent} deleteEvent = {handleDeleteEvent}/>
+                <EventList 
+                    events={events} 
+                    selectEvent={selectEvent} 
+                    deleteEvent = {handleDeleteEvent}
+                    />
             </Grid.Column>
             <Grid.Column width={6}>
                 {formOpen && (
